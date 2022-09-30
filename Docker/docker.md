@@ -18,6 +18,7 @@ sudo docker run -d --name=rabbit_sks -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEF
 
 nginx:1.22
 
-```java
+```shell
+sudo docker run -d --name=nginx_sks -p 80:80 -p 443:443 -v /usr/local/sks/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/sks/docker/nginx/log:/var/log/nginx -v /usr/local/sks/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/sks/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 

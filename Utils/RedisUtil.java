@@ -2,11 +2,10 @@ package top.mnsx.sks.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -508,6 +507,49 @@ public final class RedisUtil {
         try {
             Long remove = redisTemplate.opsForList().remove(key, count, value);
             return remove;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    /**
+     * 添加根据score
+     * @param key
+     * @param score
+     * @param value
+     * @return
+     */
+    public Boolean zSet(String key, double score, String value) {
+        try {
+            Boolean add = redisTemplate.opsForZSet().add(key, value, score);
+            return add;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Set<ZSetOperations.TypedTuple<String>> zGetByScore(String key, Long start, Long end, Boolean flag) {
+        try {
+            Set<ZSetOperations.TypedTuple<String>> range = null;
+            if (flag) {
+                range = redisTemplate.opsForZSet().rangeWithScores(key, start, end);
+                return range;
+            } else {
+                range = redisTemplate.opsForZSet().reverseRangeWithScores(key, start, end);
+                return range;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Long zDel(String key, Double min, Double max) {
+        try {
+            Long count = redisTemplate.opsForZSet().removeRangeByScore(key, min, max);
+            return count;
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;
