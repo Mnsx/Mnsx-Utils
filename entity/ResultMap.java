@@ -1,21 +1,24 @@
-package top.mnsx.sks.result;
+package top.mnsx.mnsxutils.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @BelongsProject: second_kill_system
+ * @BelongsProject: mnsx-utils
  * @User: Mnsx_x
- * @CreateTime: 2022/9/22 15:05
- * @Description: 响应类
+ * @CreateTime: 2022/10/1 16:17
+ * @Description: 响应类——利用建造者模式创建，链式编程构建响应类，通过读取ResultCode的内容返回异常
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResultMap<T> {
+    // 响应码
     private Integer code;
+    // 响应数据
     private T data;
+    // 响应消息
     private String message;
 
     ResultMap(Builder builder) {
@@ -24,30 +27,48 @@ public class ResultMap<T> {
         this.message = builder.message;
     }
 
-    private static ResultCod SUCCESS = new ResultCod(0, "success");
-
+    /**
+     * 请求成功响应方法（带参数）
+     * @param data 响应参数
+     * @return 返回响应类
+     */
     public ResultMap<T> ok(T data) {
-        return builder().code(ResultMap.SUCCESS.getCode())
-                .message(ResultMap.SUCCESS.getMsg())
+        return builder().code(ResultCode.SUCCESS.getCode())
+                .message(ResultCode.SUCCESS.getMessage())
                 .data(data)
                 .build();
     }
 
+    /**
+     * 请求成功响应方法
+     * @return 返回响应类
+     */
     public ResultMap<T> ok() {
-        return builder().code(ResultMap.SUCCESS.getCode())
-                .message(ResultMap.SUCCESS.getMsg())
+        return builder().code(ResultCode.SUCCESS.getCode())
+                .message(ResultCode.SUCCESS.getMessage())
                 .build();
     }
 
-    public ResultMap<T> fail(ResultCod resultCode) {
+    /**
+     * 请求失败响应方法
+     * @param resultCode 错误返回码类
+     * @return 返回响应类
+     */
+    public ResultMap<T> fail(ResultCode resultCode) {
         return builder().code(resultCode.getCode())
-                .message(resultCode.getMsg())
+                .message(resultCode.getMessage())
                 .build();
     }
 
-    public ResultMap<T> fail(ResultCod resultCode, T data) {
+    /**
+     * 请求失败响应方法（带参数）
+     * @param resultCode 错误返回码类
+     * @param data 响应参数
+     * @return 返回响应类
+     */
+    public ResultMap<T> fail(ResultCode resultCode, T data) {
         return builder().code(resultCode.getCode())
-                .message(resultCode.getMsg())
+                .message(resultCode.getMessage())
                 .data(data)
                 .build();
     }
@@ -56,6 +77,7 @@ public class ResultMap<T> {
         return new Builder();
     }
 
+    // 构建者内部类
     private class Builder {
         private Integer code;
         private T data;

@@ -22,3 +22,15 @@ nginx:1.22
 sudo docker run -d --name=nginx_sks -p 80:80 -p 443:443 -v /usr/local/sks/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/sks/docker/nginx/log:/var/log/nginx -v /usr/local/sks/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/sks/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 
+zookeeper:3.5.9
+
+```shell
+sudo docker run -d --name=zookeeper_mnsx -e TZ="Asia/Shanghai" -p 2181:2181 -v $PWD/data:/data zookeeper:3.5.9
+```
+
+consul:1.13.2
+
+```shell
+sudo docker run -d -p 8500:8500 --restart=always --name=consul_mnsx consul:1.13.2 agent -server -bootstrap -ui -node=1 -client="0.0.0.0"
+```
+
