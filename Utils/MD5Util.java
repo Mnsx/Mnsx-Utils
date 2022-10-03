@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.utils;
+package top.mnsx.blog.utils;
 
 import lombok.val;
 import org.springframework.util.DigestUtils;

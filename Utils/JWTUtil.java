@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.utils;
+package top.mnsx.blog.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

@@ -7,7 +7,7 @@ sudo docker run -d --name=mysql_sks -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123123 -
 redis:7.0.4
 
 ```shell
-sudo docker run -d --name=redis_sks -p 6379:6379 -v /usr/local/sks/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/sks/docker/redis/data:/data redis:7.0.4 redis-server /etc/redis/redis.conf
+sudo docker run -d --name=redis_blog -p 6379:6379 -v /usr/local/blog/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/blog/docker/redis/data:/data redis:7.0.4 redis-server /etc/redis/redis.conf
 ```
 
 rabbitmq:3.8.5

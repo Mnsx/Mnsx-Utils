@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.utils;
+package top.mnsx.blog.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

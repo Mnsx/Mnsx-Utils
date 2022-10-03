@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.utils;
+package top.mnsx.blog.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

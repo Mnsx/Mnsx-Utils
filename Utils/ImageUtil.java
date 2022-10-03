@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.utils;
+package top.mnsx.blog.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
