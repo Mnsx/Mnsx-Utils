@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.entity;
+package top.mnsx.blog.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +22,6 @@ public class ResultCode {
     // 成功响应
     public static ResultCode SUCCESS = new ResultCode(0, "success");
     // 错误响应
+    // 服务器内部问题
+    public static ResultCode INNER_ERROR = new ResultCode(50000, "服务器内部问题，请联系管理员");
 }

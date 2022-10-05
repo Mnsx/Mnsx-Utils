@@ -2,7 +2,7 @@ package top.mnsx.blog.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import top.mnsx.mnsxutils.entity.ResultMap;
+import top.mnsx.blog.entity.ResultMap;
 
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public class JSONUtil {
      * @param result 响应类
      * @return 返回Json字符串
      */
-    public static String mapToJson(ResultMap<?> result) {
+    public static String mapToJson(ResultMap result) {
         return JSON.toJSONString(result);
     }
 }

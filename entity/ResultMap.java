@@ -1,4 +1,4 @@
-package top.mnsx.mnsxutils.entity;
+package top.mnsx.blog.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResultMap<T> {
+public class ResultMap {
     // 响应码
     private Integer code;
     // 响应数据
-    private T data;
+    private ResultData data;
     // 响应消息
     private String message;
 
@@ -32,7 +32,7 @@ public class ResultMap<T> {
      * @param data 响应参数
      * @return 返回响应类
      */
-    public ResultMap<T> ok(T data) {
+    public static ResultMap ok(ResultData data) {
         return builder().code(ResultCode.SUCCESS.getCode())
                 .message(ResultCode.SUCCESS.getMessage())
                 .data(data)
@@ -43,7 +43,7 @@ public class ResultMap<T> {
      * 请求成功响应方法
      * @return 返回响应类
      */
-    public ResultMap<T> ok() {
+    public static ResultMap ok() {
         return builder().code(ResultCode.SUCCESS.getCode())
                 .message(ResultCode.SUCCESS.getMessage())
                 .build();
@@ -54,7 +54,7 @@ public class ResultMap<T> {
      * @param resultCode 错误返回码类
      * @return 返回响应类
      */
-    public ResultMap<T> fail(ResultCode resultCode) {
+    public static ResultMap fail(ResultCode resultCode) {
         return builder().code(resultCode.getCode())
                 .message(resultCode.getMessage())
                 .build();
@@ -66,21 +66,21 @@ public class ResultMap<T> {
      * @param data 响应参数
      * @return 返回响应类
      */
-    public ResultMap<T> fail(ResultCode resultCode, T data) {
+    public static ResultMap fail(ResultCode resultCode, ResultData data) {
         return builder().code(resultCode.getCode())
                 .message(resultCode.getMessage())
                 .data(data)
                 .build();
     }
 
-    private Builder builder() {
+    private static Builder builder() {
         return new Builder();
     }
 
     // 构建者内部类
-    private class Builder {
+    private static class Builder {
         private Integer code;
-        private T data;
+        private ResultData data;
         private String message;
 
         public Builder code(Integer code) {
@@ -88,7 +88,7 @@ public class ResultMap<T> {
             return this;
         }
 
-        public Builder data(T data) {
+        public Builder data(ResultData data) {
             this.data = data;
             return this;
         }
@@ -98,8 +98,8 @@ public class ResultMap<T> {
             return this;
         }
 
-        public ResultMap<T> build() {
-            return new ResultMap<>(this);
+        public ResultMap build() {
+            return new ResultMap(this);
         }
     }
 }
