@@ -1,4 +1,4 @@
-package top.mnsx.blog.utils;
+package top.mnsx.take_out.utils;
 
 import lombok.val;
 import org.springframework.util.DigestUtils;
@@ -14,6 +14,11 @@ import java.util.Random;
 public class MD5Util {
     // 默认盐值
     private static final String salt = "7655d825";
+
+    public static void main(String[] args) {
+        // f7266e6ee3e88b58c87c7264a5477c13
+        System.out.println(inputPassToTPass("123123", salt));
+    }
 
     /**
      * 普通md5加密
@@ -31,6 +36,9 @@ public class MD5Util {
      * @return 加密后字符串
      */
     public static String inputPassToTPass(String inputPass, String tSalt) {
+        if (tSalt == null) {
+            tSalt = salt;
+        }
         String midPass = inputPassToMidPass(inputPass);
         return midPassToTPass(midPass, tSalt);
     }

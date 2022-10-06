@@ -1,4 +1,4 @@
-package top.mnsx.blog.entity;
+package top.mnsx.take_out.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class ResultMap {
     // 响应码
     private Integer code;
     // 响应数据
-    private ResultData data;
+    private Object data;
     // 响应消息
     private String message;
 
@@ -32,7 +32,7 @@ public class ResultMap {
      * @param data 响应参数
      * @return 返回响应类
      */
-    public static ResultMap ok(ResultData data) {
+    public static ResultMap ok(Object data) {
         return builder().code(ResultCode.SUCCESS.getCode())
                 .message(ResultCode.SUCCESS.getMessage())
                 .data(data)
@@ -66,7 +66,7 @@ public class ResultMap {
      * @param data 响应参数
      * @return 返回响应类
      */
-    public static ResultMap fail(ResultCode resultCode, ResultData data) {
+    public static ResultMap fail(ResultCode resultCode, Object data) {
         return builder().code(resultCode.getCode())
                 .message(resultCode.getMessage())
                 .data(data)
@@ -80,7 +80,7 @@ public class ResultMap {
     // 构建者内部类
     private static class Builder {
         private Integer code;
-        private ResultData data;
+        private Object data;
         private String message;
 
         public Builder code(Integer code) {
@@ -88,7 +88,7 @@ public class ResultMap {
             return this;
         }
 
-        public Builder data(ResultData data) {
+        public Builder data(Object data) {
             this.data = data;
             return this;
         }

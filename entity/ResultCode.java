@@ -1,5 +1,6 @@
-package top.mnsx.blog.entity;
+package top.mnsx.take_out.entity;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,8 @@ public class ResultCode {
     private String message;
 
     // 成功响应
-    public static ResultCode SUCCESS = new ResultCode(0, "success");
+    public static ResultCode SUCCESS = new ResultCode(1, "success");
     // 错误响应
     // 服务器内部问题
-    public static ResultCode INNER_ERROR = new ResultCode(50000, "服务器内部问题，请联系管理员");
+    public static ResultCode INNER_ERROR = new ResultCode(50000, "服务器内部问题");
 }

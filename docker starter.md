@@ -19,19 +19,7 @@ sudo docker run -d --name=rabbit_sks -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEF
 nginx:1.22
 
 ```shell
-sudo docker run -d --name=nginx_sks -p 80:80 -p 443:443 -v /usr/local/sks/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/sks/docker/nginx/log:/var/log/nginx -v /usr/local/sks/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/sks/docker/nginx/html:/usr/share/nginx/html nginx:1.22
-```
-
-zookeeper:3.5.9
-
-```shell
-sudo docker run -d --name=zookeeper_mnsx -e TZ="Asia/Shanghai" -p 2181:2181 -v $PWD/data:/data zookeeper:3.5.9
-```
-
-consul:1.13.2
-
-```shell
-sudo docker run -d -p 8500:8500 --restart=always --name=consul_mnsx consul:1.13.2 agent -server -bootstrap -ui -node=1 -client="0.0.0.0"
+sudo docker run -d --name=nginx_store -p 80:80 -p 443:443 -v /usr/local/docker/nginx_store/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/docker/nginx_store/log:/var/log/nginx -v /usr/local/docker/nginx_store/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/docker/nginx_store/html:/usr/share/nginx/html nginx:1.22
 ```
 
 openzipkin/zipkin
@@ -43,6 +31,6 @@ sudo docker run -d --name=zipkin_test -p 9411:9411 openzipkin/zipkin
 nacos/nacos-server:v1.4.4
 
 ```shell
-sudo docker run -d --name=nacos_test -p 8848:8848 -e MODE=standalone nacos/nacos-server:v1.4.4
+sudo docker run --name nacos_test -e MODE=standalone -p 8848:8848 -d nacos/nacos-server:v1.4.4
 ```
 
