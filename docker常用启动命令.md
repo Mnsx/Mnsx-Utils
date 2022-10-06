@@ -34,3 +34,15 @@ consul:1.13.2
 sudo docker run -d -p 8500:8500 --restart=always --name=consul_mnsx consul:1.13.2 agent -server -bootstrap -ui -node=1 -client="0.0.0.0"
 ```
 
+openzipkin/zipkin
+
+```shell
+sudo docker run -d --name=zipkin_test -p 9411:9411 openzipkin/zipkin
+```
+
+nacos/nacos-server:v1.4.4
+
+```shell
+sudo docker run -d --name=nacos_test -p 8848:8848 -e MODE=standalone nacos/nacos-server:v1.4.4
+```
+
