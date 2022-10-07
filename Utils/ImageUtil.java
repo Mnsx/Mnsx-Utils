@@ -1,4 +1,4 @@
-package top.mnsx.blog.utils;
+package top.mnsx.take_out.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;

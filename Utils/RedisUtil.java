@@ -1,4 +1,4 @@
-package top.mnsx.blog.utils;
+package top.mnsx.take_out.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.BitFieldSubCommands;

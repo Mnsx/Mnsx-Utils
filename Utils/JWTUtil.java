@@ -1,4 +1,4 @@
-package top.mnsx.blog.utils;
+package top.mnsx.take_out.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

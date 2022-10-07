@@ -1,8 +1,7 @@
-package top.mnsx.blog.utils;
+package top.mnsx.take_out.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import top.mnsx.blog.entity.ResultMap;
+import top.mnsx.take_out.entity.ResultMap;
 
 import java.util.Map;
 
@@ -30,5 +29,16 @@ public class JSONUtil {
      */
     public static String mapToJson(ResultMap result) {
         return JSON.toJSONString(result);
+    }
+
+    /**
+     * 将json转换程对象
+     * @param json 字符串
+     * @param aClass 返回类型
+     * @return 返回对象
+     * @param <T> 对象类型
+     */
+    public static <T> T jsonToObj(String json, Class<T> aClass) {
+        return JSON.parseObject(json, aClass);
     }
 }
