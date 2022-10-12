@@ -1,4 +1,4 @@
-package top.mnsx.take_out.utils;
+package top.mnsx.token_demo.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

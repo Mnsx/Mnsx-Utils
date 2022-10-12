@@ -1,7 +1,6 @@
-package top.mnsx.take_out.utils;
+package top.mnsx.token_demo.utils;
 
-import com.alibaba.fastjson.JSON;
-import top.mnsx.take_out.entity.ResultMap;
+import com.alibaba.fastjson2.JSON;
 
 import java.util.Map;
 

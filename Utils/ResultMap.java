@@ -1,4 +1,4 @@
-package top.mnsx.take_out.entity;
+package top.mnsx.token_demo.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

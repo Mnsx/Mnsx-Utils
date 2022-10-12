@@ -1,0 +1,51 @@
+datasource:
+        # 流控规则
+        flow:
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            username: ${spring.cloud.nacos.config.username}
+            password: ${spring.cloud.nacos.config.password}
+            namespace: ${spring.cloud.nacos.config.namespace}
+            group-id: sentinel-group
+            data-id: ${spring.application.name}-sentinel-flow-rules
+            rule-type: flow
+        # 熔断降级
+        degrade:
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            username: ${spring.cloud.nacos.config.username}
+            password: ${spring.cloud.nacos.config.password}
+            namespace: ${spring.cloud.nacos.config.namespace}
+            group-id: sentinel-group
+            data-id: ${spring.application.name}-sentinel-degrade-rules
+            rule-type: degrade
+        # 热点规则
+        param-flow:
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            username: ${spring.cloud.nacos.config.username}
+            password: ${spring.cloud.nacos.config.password}
+            namespace: ${spring.cloud.nacos.config.namespace}
+            group-id: sentinel-group
+            data-id: ${spring.application.name}-sentinel-param-flow-rules
+            rule-type: param-flow
+        # 系统规则
+        system:
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            username: ${spring.cloud.nacos.config.username}
+            password: ${spring.cloud.nacos.config.password}
+            namespace: ${spring.cloud.nacos.config.namespace}
+            group-id: sentinel-group
+            data-id: ${spring.application.name}-sentinel-system-rules
+            rule-type: system
+        # 授权规则
+        authority:
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            username: ${spring.cloud.nacos.config.username}
+            password: ${spring.cloud.nacos.config.password}
+            namespace: ${spring.cloud.nacos.config.namespace}
+            group-id: sentinel-group
+            data-id: ${spring.application.name}-sentinel-authority-rules
+            rule-type: authority

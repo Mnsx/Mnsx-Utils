@@ -19,7 +19,7 @@ sudo docker run -d --name=rabbit -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT
 nginx:1.22（单机）
 
 ```shell
-sudo docker run -d --name=nginx -p 80:80 -p 443:443 -v /usr/local/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/docker/nginx/log:/var/log/nginx -v /usr/local/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/docker/nginx/html:/usr/share/nginx/html nginx:1.22
+sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 77:77 -v /usr/local/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/docker/nginx/log:/var/log/nginx -v /usr/local/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 
 openzipkin/zipkin（单机）
@@ -38,9 +38,8 @@ nacos/nacos-server:v1.4.4（单机数据库）
 
 ```shell
 docker run --name nacos -e MODE=standalone \
---link mysq:db \
 -e SPRING_DATASOURCE_PLATFORM=mysql \
--e  MYSQL_SERVICE_HOST=db \
+-e  MYSQL_SERVICE_HOST=192.168.32.70 \
 -e MYSQL_SERVICE_PORT=3306 \
 -e MYSQL_SERVICE_DB_NAME=nacos \
 -e MYSQL_SERVICE_USER=root \
@@ -64,7 +63,7 @@ docker run -d --name nacos --hostname nacos1 --net=host \
 -e NACOS_SERVERS="nacos1:8848 nacos2:8848 nacos3:8848" \
 -v /usr/local/docker/nacos/custom.properties:/home/nacos/init.d/custom.properties \
 -v /usr/local/docker/nacos/logs:/home/nacos/logs \
-nacos/nacos-server:1.4.1
+nacos/nacos-server:1.4.4
 ```
 
 ```shell
@@ -80,7 +79,7 @@ docker run -d --name nacos --hostname nacos2 --net=host \
 -e NACOS_SERVERS="nacos1:8848 nacos2:8848 nacos3:8848" \
 -v /usr/local/docker/nacos/custom.properties:/home/nacos/init.d/custom.properties \
 -v /usr/local/docker/nacos/logs:/home/nacos/logs \
-nacos/nacos-server:1.4.1
+nacos/nacos-server:1.4.4
 ```
 
 ```shell
@@ -96,7 +95,17 @@ docker run -d --name nacos --hostname nacos2 --net=host \
 -e NACOS_SERVERS="nacos1:8848 nacos2:8848 nacos3:8848" \
 -v /usr/local/docker/nacos/custom.properties:/home/nacos/init.d/custom.properties \
 -v /usr/local/docker/nacos/logs:/home/nacos/logs \
-nacos/nacos-server:1.4.1
+nacos/nacos-server:1.4.4
+```
+
+seata1.5.1（单机）
+
+```shell
+docker run -d --name seata \
+        -p 8091:8091 \
+        -p 7091:7091 \
+        -v /usr/local/docker/seata/resources:/seata-server/resources  \
+        seataio/seata-server:1.5.1
 ```
 
 
