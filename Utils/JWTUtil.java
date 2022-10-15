@@ -1,4 +1,4 @@
-package top.mnsx.token_demo.utils;
+package com.hmdp;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
@@ -7,6 +7,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.util.Calendar;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @BelongsProject: mnsx-utils

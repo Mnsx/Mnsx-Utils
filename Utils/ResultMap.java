@@ -1,4 +1,4 @@
-package top.mnsx.token_demo.utils;
+package com.hmdp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,24 +19,17 @@ public class ResultMap {
     // 响应数据
     private Object data;
     // 响应消息
-    private String message;
-
-    ResultMap(Builder builder) {
-        this.code = builder.code;
-        this.data = builder.data;
-        this.message = builder.message;
-    }
+    private String msg;
 
     /**
      * 请求成功响应方法（带参数）
      * @param data 响应参数
      * @return 返回响应类
      */
-    public static ResultMap ok(Object data) {
+    public static <T> ResultMap ok(T data) {
         return builder().code(ResultCode.SUCCESS.getCode())
-                .message(ResultCode.SUCCESS.getMessage())
-                .data(data)
-                .build();
+                .msg(ResultCode.SUCCESS.getMessage())
+                .data(data);
     }
 
     /**
@@ -45,8 +38,7 @@ public class ResultMap {
      */
     public static ResultMap ok() {
         return builder().code(ResultCode.SUCCESS.getCode())
-                .message(ResultCode.SUCCESS.getMessage())
-                .build();
+                .msg(ResultCode.SUCCESS.getMessage());
     }
 
     /**
@@ -56,8 +48,7 @@ public class ResultMap {
      */
     public static ResultMap fail(ResultCode resultCode) {
         return builder().code(resultCode.getCode())
-                .message(resultCode.getMessage())
-                .build();
+                .msg(resultCode.getMessage());
     }
 
     /**
@@ -66,40 +57,28 @@ public class ResultMap {
      * @param data 响应参数
      * @return 返回响应类
      */
-    public static ResultMap fail(ResultCode resultCode, Object data) {
+    public static <T> ResultMap fail(ResultCode resultCode, T data) {
         return builder().code(resultCode.getCode())
-                .message(resultCode.getMessage())
-                .data(data)
-                .build();
+                .msg(resultCode.getMessage())
+                .data(data);
     }
 
-    private static Builder builder() {
-        return new Builder();
+    private <T> ResultMap data(T data) {
+        setData(data);
+        return this;
     }
 
-    // 构建者内部类
-    private static class Builder {
-        private Integer code;
-        private Object data;
-        private String message;
+    private ResultMap msg(String msg) {
+        setMsg(msg);
+        return this;
+    }
 
-        public Builder code(Integer code) {
-            this.code = code;
-            return this;
-        }
+    private ResultMap code(Integer code) {
+        setCode(code);
+        return this;
+    }
 
-        public Builder data(Object data) {
-            this.data = data;
-            return this;
-        }
-
-        public Builder message(String message) {
-            this.message = message;
-            return this;
-        }
-
-        public ResultMap build() {
-            return new ResultMap(this);
-        }
+    private static ResultMap builder() {
+        return new ResultMap();
     }
 }

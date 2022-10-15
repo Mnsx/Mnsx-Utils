@@ -1,4 +1,4 @@
-package top.mnsx.token_demo.utils;
+package com.hmdp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

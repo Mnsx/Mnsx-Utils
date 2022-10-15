@@ -1,4 +1,4 @@
-package top.mnsx.take_out.utils;
+package com.hmdp;
 
 import lombok.val;
 import org.springframework.util.DigestUtils;
@@ -15,10 +15,7 @@ public class MD5Util {
     // 默认盐值
     private static final String salt = "7655d825";
 
-    public static void main(String[] args) {
-        // f7266e6ee3e88b58c87c7264a5477c13
-        System.out.println(inputPassToTPass("123123", salt));
-    }
+    // 123123——f7266e6ee3e88b58c87c7264a5477c13
 
     /**
      * 普通md5加密
