@@ -1,4 +1,4 @@
-package com.hmdp;
+package top.mnsx.mnsx_book.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

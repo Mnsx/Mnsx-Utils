@@ -1,4 +1,4 @@
-package top.mnsx.token_demo.utils;
+package top.mnsx.mnsx_book.utils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

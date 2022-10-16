@@ -1,6 +1,4 @@
-package top.mnsx.take_out.utils;
-
-import top.mnsx.take_out.entity.Employee;
+package top.mnsx.mnsx_book.utils;
 
 /**
  * @BelongsProject: take_out

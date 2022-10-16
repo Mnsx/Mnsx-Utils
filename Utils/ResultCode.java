@@ -1,4 +1,4 @@
-package com.hmdp;
+package top.mnsx.mnsx_book.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,17 @@ public enum ResultCode {
     SUCCESS(200, "请求成功"),
     // 错误响应
     // 服务器内部问题
-    INNER_ERROR(500, "服务器内部问题，请联系管理员");
+    INNER_ERROR(500, "服务器内部问题，请联系管理员"),
+    // 登录
+    REQUEST_AFTER_LOGIN(5000, "请登录后再使用系统"),
+    PERMISSION_NOT_ENOUGH(5001, "用户权限不足"),
+    PHONE_NOT_FORMAT(5002, "手机号码格式错误"),
+    LOGIN_FAIL(5003, "登录失败，请输入验证码或密码"),
+    CODE_NOT_RIGHT(5004, "验证码错误"),
+    PASSWORD_NOT_RIGHT(5005, "密码错误"),
+    ILLEGAL_TOKEN(5006, "token非法"),
+    // 商品类型
+    SHOP_TYPE_NOT_FOUND(5100, "商品类型不存在");
 
     private final Integer code;
     private final String message;

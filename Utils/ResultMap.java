@@ -1,4 +1,4 @@
-package com.hmdp;
+package top.mnsx.mnsx_book.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
