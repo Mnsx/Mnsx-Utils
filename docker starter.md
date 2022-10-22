@@ -19,7 +19,7 @@ sudo docker run -d --name=rabbit -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT
 nginx:1.22（单机）
 
 ```shell
-sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 77:77 -v /usr/local/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/docker/nginx/log:/var/log/nginx -v /usr/local/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/docker/nginx/html:/usr/share/nginx/html nginx:1.22
+sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 8080:8080 -v /home/pi/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/pi/docker/nginx/log:/var/log/nginx -v /home/pi/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /home/pi/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 
 openzipkin/zipkin（单机）
