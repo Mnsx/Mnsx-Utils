@@ -1,10 +1,8 @@
-package top.mnsx.mnsx_book.utils;
+package top.mnsx.utils;
 
 /**
- * @BelongsProject: take_out
- * @User: Mnsx_x
- * @CreateTime: 2022/10/7 21:30
- * @Description: ThreadLocal工具类
+ * @Author Mnsx_x xx1527030652@gmail.com
+ * ThreadLocal工具类
  */
 public class ThreadLocalUtil {
     private static final ThreadLocal<Object> threadLocal = new ThreadLocal<>();

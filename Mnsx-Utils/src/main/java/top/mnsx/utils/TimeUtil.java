@@ -1,4 +1,4 @@
-package top.mnsx.take_out.utils;
+package top.mnsx.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,10 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * @BelongsProject: second_kill_system
- * @User: Mnsx_x
- * @CreateTime: 2022/9/23 17:39
- * @Description: 时间工具类
+ * @Author Mnsx_x xx1527030652@gmail.com
+ * 时间工具类
  */
 public class TimeUtil {
     // 时间展示格式

@@ -1,15 +1,12 @@
-package com.hmdp;
+package top.mnsx.utils;
 
-import lombok.val;
 import org.springframework.util.DigestUtils;
 
 import java.util.Random;
 
 /**
- * @BelongsProject: mnsx-utils
- * @User: Mnsx_x
- * @CreateTime: 2022/10/1 16:51
- * @Description: MD5加密解密工具
+ * @Author Mnsx_x xx1527030652@gmail.com
+ * MD5加密工具类
  */
 public class MD5Util {
     // 默认盐值

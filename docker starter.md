@@ -1,13 +1,13 @@
 mysql:5.7（单机）
 
 ```shell
-sudo docker run -d --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123123 -v docker/mysql:/var/lib/mysql mysql:5.7
+sudo docker run -d --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123123 -v /home/mnsx/Workspace/Docker/mysql:/var/lib/mysql mysql:5.7
 ```
 
 redis:7.0.4（单机）
 
 ```shell
-sudo docker run -d --name=redis -p 6379:6379 -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data redis:7.0.4 redis-server /etc/redis/redis.conf
+sudo docker run -d --name=redis -p 6379:6379 -v /root/docker/redis/redis.conf:/etc/redis/redis.conf -v /root/docker/redis/data:/data redis:7.0.4 redis-server /etc/redis/redis.conf
 ```
 
 rabbitmq:3.8.5（单机）
@@ -19,7 +19,7 @@ sudo docker run -d --name=rabbit -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT
 nginx:1.22（单机）
 
 ```shell
-sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 6679:6679 -p 8080:8080 -v /usr/local/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/docker/nginx/log:/var/log/nginx -v /usr/local/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /usr/local/docker/nginx/html:/usr/share/nginx/html nginx:1.22
+sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 6679:6679 -p 8080:8080 -v /root/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /root/docker/nginx/log:/var/log/nginx -v /root/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /root/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 
 openzipkin/zipkin（单机）

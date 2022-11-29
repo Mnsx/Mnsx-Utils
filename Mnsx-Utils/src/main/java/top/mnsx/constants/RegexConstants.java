@@ -1,9 +1,10 @@
-package top.mnsx.mnsx_book.utils;
+package top.mnsx.constants;
 
 /**
- * @author 虎哥
+ * @Author Mnsx_x xx1527030652@gmail.com
+ * 正则常量类
  */
-public abstract class RegexPatterns {
+public class RegexConstants {
     /**
      * 手机号正则
      */
@@ -20,5 +21,4 @@ public abstract class RegexPatterns {
      * 验证码正则, 6位数字或字母
      */
     public static final String VERIFY_CODE_REGEX = "^[a-zA-Z\\d]{6}$";
-
 }

@@ -1,4 +1,4 @@
-package com.hmdp;
+package top.mnsx.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,10 +11,8 @@ import java.nio.channels.FileChannel;
 import java.util.UUID;
 
 /**
- * @BelongsProject: mnsx-utils
- * @User: Mnsx_x
- * @CreateTime: 2022/10/1 16:00
- * @Description: 图片工具类——结合SpringMVC实现图片上传
+ * @Author Mnsx_x xx1527030652@gmail.com
+ * 对象属性赋值工具类
  */
 @Slf4j
 public class ImageUtil {
