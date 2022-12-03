@@ -39,7 +39,7 @@ nacos/nacos-server:v1.4.4（单机数据库）
 ```shell
 docker run --name nacos -e MODE=standalone \
 -e SPRING_DATASOURCE_PLATFORM=mysql \
--e  MYSQL_SERVICE_HOST=192.168.32.70 \
+-e  MYSQL_SERVICE_HOST=192.168.32.130 \
 -e MYSQL_SERVICE_PORT=3306 \
 -e MYSQL_SERVICE_DB_NAME=nacos \
 -e MYSQL_SERVICE_USER=root \
