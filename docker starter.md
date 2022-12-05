@@ -1,7 +1,7 @@
 mysql:5.7（单机）
 
 ```shell
-sudo docker run -d --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123123 -v /home/mnsx/Workspace/Docker/mysql:/var/lib/mysql mysql:5.7
+sudo docker run -d --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123123 -v /root/docker/mysql:/var/lib/mysql mysql:5.7
 ```
 
 redis:7.0.4（单机）
@@ -19,7 +19,7 @@ sudo docker run -d --name=rabbit -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT
 nginx:1.22（单机）
 
 ```shell
-sudo docker run -d --name=nginx -p 80:80 -p 443:443 -p 6679:6679 -p 8080:8080 -v /root/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /root/docker/nginx/log:/var/log/nginx -v /root/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /root/docker/nginx/html:/usr/share/nginx/html nginx:1.22
+sudo docker run -d --name=nginx -p 80:80 -p 443:443 -v /root/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /root/docker/nginx/log:/var/log/nginx -v /root/docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf -v /root/docker/nginx/html:/usr/share/nginx/html nginx:1.22
 ```
 
 openzipkin/zipkin（单机）
@@ -98,7 +98,7 @@ docker run -d --name nacos --hostname nacos2 --net=host \
 nacos/nacos-server:1.4.4
 ```
 
-seata1.5.1（单机）
+seata:1.5.1（单机）
 
 ```shell
 docker run -d --name seata \
@@ -107,6 +107,35 @@ docker run -d --name seata \
         -v /usr/local/docker/seata/resources:/seata-server/resources  \
         seataio/seata-server:1.5.1
 ```
+
+elasticsearch:7.12.1（单机）
+
+```shell
+sudo docker run -d \
+	--name es \
+	-e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+	-e "discovery.type=single-node" \
+	-v /home/mnsx/Workspace/Docker/es/data:/usr/share/elasticsearch/data \
+	-v /home/mnsx/Workspace/Docker/es/plugins:/usr/share/elasticsearch/plugins \
+	--privileged \
+	--network es-net \
+	-p 9200:9200 \
+	-p 9300:9300 \
+elasticsearch:7.12.1
+```
+
+kibana:7.12.1（单机）
+
+```shell
+sudo docker run -d \
+--name kibana \
+-e ELASTICSEARCH_HOSTS=http://es:9200 \
+--network=es-net \
+-p 5601:5601 \
+kibana:7.12.1
+```
+
+
 
 
 
