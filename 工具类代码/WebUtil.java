@@ -1,4 +1,4 @@
-package top.mnsx.utils;
+package top.mnsx.blog.utils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
